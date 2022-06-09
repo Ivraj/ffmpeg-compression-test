@@ -1,10 +1,20 @@
 #!/usr/bin/env zx
 
-import { basicCompression, crfCompression, testFfmpegCmd } from "../lib/ffmpegTesting.js";
+import {
+  defaultCompression,
+  crfCompression,
+  testFfmpegCmd,
+  scalingCompression,
+  scalingForcedCompression,
+} from "../lib/ffmpegTesting.js";
 
 (async () => {
   console.log(`\n`);
-  await testFfmpegCmd(basicCompression, "basic compression");
+  await testFfmpegCmd(defaultCompression);
   console.log(`\n`);
-  await testFfmpegCmd(crfCompression, "CRF compression");
+  await testFfmpegCmd(crfCompression);
+  console.log(`\n`);
+  await testFfmpegCmd(scalingCompression);
+  console.log(`\n`);
+  await testFfmpegCmd(scalingForcedCompression);
 })();
